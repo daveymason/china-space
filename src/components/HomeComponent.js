@@ -17,9 +17,9 @@ function Home(props) {
                 </div>
                 <div className="col-md m-1">
                 <RenderCard
-                        item={props.promotion}
-                        isLoading={props.promotionLoading}
-                        errMess={props.promotionErrMess}
+                        item={props.spaceport}
+                        isLoading={props.spaceportLoading}
+                        errMess={props.spaceportErrMess}
                     />
                 </div>
                 <div className="col-md m-1">

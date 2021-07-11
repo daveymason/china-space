@@ -1,4 +1,4 @@
-export const PROMOTIONS = [
+export const SPACEPORTS = [
     {
         id: 0,
         name: "Mountain Adventure",

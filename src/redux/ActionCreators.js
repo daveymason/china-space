@@ -119,15 +119,15 @@ export const telescopesFailed = errMess => ({
 
 
 
-export const addPromotions = promotions => ({
-    type: ActionTypes.ADD_PROMOTIONS,
-    payload: promotions
+export const addSpaceports = spaceports => ({
+    type: ActionTypes.ADD_SPACEPORTS,
+    payload: spaceports
 });
 
-export const fetchPromotions = () => dispatch => {
-    dispatch(promotionsLoading());
+export const fetchSpaceports = () => dispatch => {
+    dispatch(spaceportsLoading());
 
-    return fetch(baseUrl + 'promotions')
+    return fetch(baseUrl + 'spaceports')
         .then(response => {
                 if (response.ok) {
                     return response;
@@ -143,16 +143,16 @@ export const fetchPromotions = () => dispatch => {
             }
         )
         .then(response => response.json())
-        .then(promotions => dispatch(addPromotions(promotions)))
-        .catch(error => dispatch(promotionsFailed(error.message)));
+        .then(spaceports => dispatch(addSpaceports(spaceports)))
+        .catch(error => dispatch(spaceportsFailed(error.message)));
 };
 
-export const promotionsLoading = () => ({
-    type: ActionTypes.PROMOTIONS_LOADING
+export const spaceportsLoading = () => ({
+    type: ActionTypes.SPACEPORTS_LOADING
 });
 
-export const promotionsFailed = errMess => ({
-    type: ActionTypes.PROMOTIONS_FAILED,
+export const spaceportsFailed = errMess => ({
+    type: ActionTypes.SPACEPORTS_FAILED,
     payload: errMess
 });
 
