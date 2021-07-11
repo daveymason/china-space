@@ -98,7 +98,7 @@ function TelescopeInfo(props) {
           <div className="col">
             <Breadcrumb>
               <BreadcrumbItem>
-                <Link to="/directory">Directory</Link>
+                <Link to="/telescope">Telescope</Link>
               </BreadcrumbItem>
               <BreadcrumbItem active>{props.telescope.name}</BreadcrumbItem>
             </Breadcrumb>

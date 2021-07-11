@@ -4254,7 +4254,7 @@ cosmiconfig@^5.0.0:
   integrity sha512-H65gsXo1SKjf8zmrJ67eJk8aIRKV5ff2D4uKZIBZShbhGSpEmsQOPW/SKMKYhSTrqR7ufy6RP69rPogdaPh/kA==
   dependencies:
     import-fresh "^2.0.0"
-    is-directory "^0.3.1"
+    is-telescope "^0.3.1"
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
@@ -7096,9 +7096,9 @@ is-descriptor@^1.0.0, is-descriptor@^1.0.2:
     is-data-descriptor "^1.0.0"
     kind-of "^6.0.2"
 
-is-directory@^0.3.1:
+is-telescope@^0.3.1:
   version "0.3.1"
-  resolved "https://registry.yarnpkg.com/is-directory/-/is-directory-0.3.1.tgz#61339b6f2475fc772fd9c9d83f5c8575dc154ae1"
+  resolved "https://registry.yarnpkg.com/is-telescope/-/is-telescope-0.3.1.tgz#61339b6f2475fc772fd9c9d83f5c8575dc154ae1"
   integrity sha1-YTObbyR1/Hcv2cnYP1yFddwVSuE=
 
 is-docker@^2.0.0:
@@ -11534,9 +11534,9 @@ request@^2.79.0:
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
 
-require-directory@^2.1.1:
+require-telescope@^2.1.1:
   version "2.1.1"
-  resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
+  resolved "https://registry.yarnpkg.com/require-telescope/-/require-telescope-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha1-jGStX9MNqxyXbiNE/+f3kqam30I=
 
 require-from-string@^2.0.2:
@@ -14007,7 +14007,7 @@ yargs@^13.3.2:
     cliui "^5.0.0"
     find-up "^3.0.0"
     get-caller-file "^2.0.1"
-    require-directory "^2.1.1"
+    require-telescope "^2.1.1"
     require-main-filename "^2.0.0"
     set-blocking "^2.0.0"
     string-width "^3.0.0"
@@ -14024,7 +14024,7 @@ yargs@^15.4.1:
     decamelize "^1.2.0"
     find-up "^4.1.0"
     get-caller-file "^2.0.1"
-    require-directory "^2.1.1"
+    require-telescope "^2.1.1"
     require-main-filename "^2.0.0"
     set-blocking "^2.0.0"
     string-width "^4.2.0"
@@ -14043,7 +14043,7 @@ yargs@^9.0.0:
     get-caller-file "^1.0.1"
     os-locale "^2.0.0"
     read-pkg-up "^2.0.0"
-    require-directory "^2.1.1"
+    require-telescope "^2.1.1"
     require-main-filename "^1.0.1"
     set-blocking "^2.0.0"
     string-width "^2.0.0"

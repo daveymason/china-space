@@ -160,15 +160,15 @@ export const spaceportsFailed = errMess => ({
 
 
 
-export const addPartners = partners => ({
-    type: ActionTypes.ADD_PARTNERS,
-    payload: partners
+export const addRovers = rovers => ({
+    type: ActionTypes.ADD_ROVERS,
+    payload: rovers
 });
 
-export const fetchPartners = () => dispatch => {
-    dispatch(partnersLoading());
+export const fetchRovers = () => dispatch => {
+    dispatch(roversLoading());
 
-    return fetch(baseUrl + 'partners')
+    return fetch(baseUrl + 'rovers')
         .then(response => {
                 if (response.ok) {
                     return response;
@@ -184,16 +184,16 @@ export const fetchPartners = () => dispatch => {
             }
         )
         .then(response => response.json())
-        .then(partners => dispatch(addPartners(partners)))
-        .catch(error => dispatch(partnersFailed(error.message)));
+        .then(rovers => dispatch(addRovers(rovers)))
+        .catch(error => dispatch(roversFailed(error.message)));
 };
 
-export const partnersLoading = () => ({
-    type: ActionTypes.PARTNERS_LOADING
+export const roversLoading = () => ({
+    type: ActionTypes.ROVERS_LOADING
 });
 
-export const partnersFailed = errMess => ({
-    type: ActionTypes.PARTNERS_FAILED,
+export const roversFailed = errMess => ({
+    type: ActionTypes.ROVERS_FAILED,
     payload: errMess
 });
 

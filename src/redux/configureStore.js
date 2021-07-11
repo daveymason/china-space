@@ -1,7 +1,7 @@
 import {createStore, combineReducers, applyMiddleware } from 'redux';
 import { Telescopes } from './telescopes';
 import { Comments } from './comments';
-import { Partners } from './partners';
+import { Rovers } from './rovers';
 import { Spaceports } from './spaceports';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
@@ -15,7 +15,7 @@ export const ConfigureStore = () => {
         combineReducers({
             telescopes: Telescopes,
             comments: Comments,
-            partners: Partners,
+            rovers: Rovers,
             spaceports: Spaceports,
             ...createForms({
                 feedbackForm: InitialFeedback

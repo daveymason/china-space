@@ -53,18 +53,23 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/directory">
-                                        <i className="fa fa-list fa-lg" /> Directory
+                                    <NavLink className="nav-link" to="/telescopes">
+                                        <i class="fas fa-microscope fa-lg" /> Telescopes 
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/aboutus">
-                                        <i className="fa fa-info fa-lg" /> About
+                                        <i className="fas fa-space-shuttle fa-lg" /> Spaceports
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/rovers">
+                                        <i className="fas fa-robot fa-lg" /> Rovers
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/contactus">
-                                        <i className="fa fa-address-card fa-lg" /> Contact Us
+                                        <i className="fa fa-address-card fa-lg" /> Contact
                                     </NavLink>
                                 </NavItem>
                             </Nav>

@@ -12,19 +12,19 @@ import { Link } from "react-router-dom";
 import { FadeTransform, Fade, Stagger } from "react-animation-components";
 import { baseUrl } from "../shared/baseUrl";
 
-function RenderPartner({ partner }) {
-  if (partner) {
+function RenderRover({ rover }) {
+  if (rover) {
     return (
       <React.Fragment>
         <Media
           object
-          src={baseUrl + partner.image}
-          alt={partner.name}
+          src={baseUrl + rover.image}
+          alt={rover.name}
           width="150"
         />
         <Media body className="ml-5 mb-4">
-          <Media heading>{partner.name}</Media>
-          {partner.description}
+          <Media heading>{rover.name}</Media>
+          {rover.description}
         </Media>
       </React.Fragment>
     );
@@ -32,23 +32,23 @@ function RenderPartner({ partner }) {
   return <div />;
 }
 
-function PartnerList(props) {
-  const partners = props.partners.partners.map((partner) => {
+function RoverList(props) {
+  const rovers = props.rovers.rovers.map((rover) => {
     return (
       <Fade tag="li">
-        <Media key={partner.id}>
-          <RenderPartner partner={partner} />
+        <Media key={rover.id}>
+          <RenderRover rover={rover} />
         </Media>
       </Fade>
     );
   });
-  if (props.partners.isLoading) {
+  if (props.rovers.isLoading) {
     return <Loading />;
   }
-  if (props.partners.errMess) {
+  if (props.rovers.errMess) {
     return (
       <div className="col">
-        <h4>{props.partners.errMess}</h4>
+        <h4>{props.rovers.errMess}</h4>
       </div>
     );
   }
@@ -56,7 +56,7 @@ function PartnerList(props) {
     <div className="col mt-4">
       <Media list>
         <Stagger in>
-          {partners}
+          {rovers}
         </Stagger>
       </Media>
     </div>
@@ -138,9 +138,9 @@ function About(props) {
       </div>
       <div className="row row-content">
         <div className="col-12">
-          <h3>Community Partners</h3>
+          <h3>Rovers</h3>
         </div>
-        <PartnerList partners={props.partners} />
+        <RoverList rovers={props.rovers} />
       </div>
     </div>
   );

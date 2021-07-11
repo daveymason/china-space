@@ -12,10 +12,10 @@ import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform } from "react-animation-components";
 
-function RenderDirectoryItem({ telescope }) {
+function RenderTelescopeItem({ telescope }) {
   return (
     <Card>
-      <Link to={`/directory/${telescope.id}`}>
+      <Link to={`/telescope/${telescope.id}`}>
         <CardImg
           width="100%"
           src={baseUrl + telescope.image}
@@ -29,11 +29,11 @@ function RenderDirectoryItem({ telescope }) {
   );
 }
 
-function Directory(props) {
-  const directory = props.telescopes.telescopes.map((telescope) => {
+function Telescope(props) {
+  const telescope = props.telescopes.telescopes.map((telescope) => {
     return (
       <div key={telescope.id} className="col-md-5 m-1">
-        <RenderDirectoryItem telescope={telescope} />
+        <RenderTelescopeItem telescope={telescope} />
       </div>
     );
   });
@@ -72,16 +72,16 @@ function Directory(props) {
               <BreadcrumbItem>
                 <Link to="/home">Home</Link>
               </BreadcrumbItem>
-              <BreadcrumbItem active>Directory</BreadcrumbItem>
+              <BreadcrumbItem active>Telescopes</BreadcrumbItem>
             </Breadcrumb>
-            <h2>Directory</h2>
+            <h2>Telescopes</h2>
             <hr />
           </div>
         </div>
       </FadeTransform>
-      <div className="row">{directory}</div>
+      <div className="row">{telescope}</div>
     </div>
   );
 }
 
-export default Directory;
+export default Telescope;
