@@ -21,7 +21,7 @@ import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 
-function RenderCampsite({ campsite }) {
+function RenderTelescope({ telescope }) {
   return (
     <div className="col-md-5 m-1">
     <FadeTransform
@@ -30,9 +30,9 @@ function RenderCampsite({ campsite }) {
             exitTransform: 'scale(0.5) translateY(-50%)'
         }}>
         <Card>
-            <CardImg top src={baseUrl + campsite.image} alt={campsite.name} />
+            <CardImg top src={baseUrl + telescope.image} alt={telescope.name} />
             <CardBody>
-                <CardText>{campsite.description}</CardText>
+                <CardText>{telescope.description}</CardText>
             </CardBody>
         </Card>
     </FadeTransform>
@@ -40,7 +40,7 @@ function RenderCampsite({ campsite }) {
   );
 }
 
-function RenderComments({comments, postComment, campsiteId}) {
+function RenderComments({comments, postComment, telescopeId}) {
 
   if (comments) {
     return (
@@ -62,7 +62,7 @@ function RenderComments({comments, postComment, campsiteId}) {
                         })
                     }
                 </Stagger>
-        <CommentForm campsiteId={campsiteId} postComment={postComment} />
+        <CommentForm telescopeId={telescopeId} postComment={postComment} />
       </div>
     );
   } else {
@@ -70,7 +70,7 @@ function RenderComments({comments, postComment, campsiteId}) {
   }
 }
 
-function CampsiteInfo(props) {
+function TelescopeInfo(props) {
   if (props.isLoading) {
       return (
           <div className="container">
@@ -91,7 +91,7 @@ function CampsiteInfo(props) {
           </div>
       );
   }
-  if (props.campsite) {
+  if (props.telescope) {
     return (
       <div className="container">
         <div className="row">
@@ -100,18 +100,18 @@ function CampsiteInfo(props) {
               <BreadcrumbItem>
                 <Link to="/directory">Directory</Link>
               </BreadcrumbItem>
-              <BreadcrumbItem active>{props.campsite.name}</BreadcrumbItem>
+              <BreadcrumbItem active>{props.telescope.name}</BreadcrumbItem>
             </Breadcrumb>
-            <h2>{props.campsite.name}</h2>
+            <h2>{props.telescope.name}</h2>
             <hr />
           </div>
         </div>
         <div className="row">
-          <RenderCampsite campsite={props.campsite} />
+          <RenderTelescope telescope={props.telescope} />
           <RenderComments
                         comments={props.comments}
                         postComment={props.postComment}
-                        campsiteId={props.campsite.id}
+                        telescopeId={props.telescope.id}
                     /> 
         </div>
       </div>
@@ -146,7 +146,7 @@ class CommentForm extends React.Component {
 
   handleSubmit(values) {
     this.toggleModal();
-    this.props.postComment(this.props.campsiteId, values.rating, values.author, values.text);
+    this.props.postComment(this.props.telescopeId, values.rating, values.author, values.text);
 }
 
   render() {
@@ -232,4 +232,4 @@ class CommentForm extends React.Component {
   }
 }
 
-export default CampsiteInfo;
+export default TelescopeInfo;

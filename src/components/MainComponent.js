@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Directory from './DirectoryComponent';
-import CampsiteInfo from './CampsiteInfoComponent';
+import TelescopeInfo from './TelescopeInfoComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
@@ -8,7 +8,7 @@ import Contact from './ContactComponent';
 import About from './AboutComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { postComment, fetchCampsites, fetchComments, fetchPromotions, fetchPartners, postFeedback } from '../redux/ActionCreators';
+import { postComment, fetchTelescopes, fetchComments, fetchPromotions, fetchPartners, postFeedback } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -16,7 +16,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const mapStateToProps = state => {
     return {
-        campsites: state.campsites,
+        telescopes: state.telescopes,
         comments: state.comments,
         partners: state.partners,
         promotions: state.promotions
@@ -24,8 +24,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    postComment: (campsiteId, rating, author, text) => (postComment(campsiteId, rating, author, text)),
-    fetchCampsites: () => (fetchCampsites()),
+    postComment: (telescopeId, rating, author, text) => (postComment(telescopeId, rating, author, text)),
+    fetchTelescopes: () => (fetchTelescopes()),
     resetFeedbackForm: () => (actions.reset('feedbackForm')),
     fetchComments: () => (fetchComments()),
     fetchPromotions: () => (fetchPromotions()),
@@ -36,7 +36,7 @@ const mapDispatchToProps = {
 class Main extends Component {
 
     componentDidMount() {
-        this.props.fetchCampsites();
+        this.props.fetchTelescopes();
         this.props.fetchComments();
         this.props.fetchPromotions();
         this.props.fetchPartners();
@@ -47,9 +47,9 @@ class Main extends Component {
         const HomePage = () => {
             return (
                 <Home
-                campsite={this.props.campsites.campsites.filter(campsite => campsite.featured)[0]}
-                campsitesLoading={this.props.campsites.isLoading}
-                campsitesErrMess={this.props.campsites.errMess}
+                telescope={this.props.telescopes.telescopes.filter(telescope => telescope.featured)[0]}
+                telescopesLoading={this.props.telescopes.isLoading}
+                telescopesErrMess={this.props.telescopes.errMess}
                 promotion={this.props.promotions.promotions.filter(promotion => promotion.featured)[0]}
                 promotionLoading={this.props.promotions.isLoading}
                 promotionErrMess={this.props.promotions.errMess}
@@ -60,13 +60,13 @@ class Main extends Component {
             );
         }
 
-        const CampsiteWithId = ({match}) => {
+        const TelescopeWithId = ({match}) => {
             return (
-                <CampsiteInfo 
-                campsite={this.props.campsites.campsites.filter(campsite => campsite.id === +match.params.campsiteId)[0]}
-                isLoading={this.props.campsites.isLoading}
-                errMess={this.props.campsites.errMess}
-                comments={this.props.comments.comments.filter(comment => comment.campsiteId === +match.params.campsiteId)}
+                <TelescopeInfo 
+                telescope={this.props.telescopes.telescopes.filter(telescope => telescope.id === +match.params.telescopeId)[0]}
+                isLoading={this.props.telescopes.isLoading}
+                errMess={this.props.telescopes.errMess}
+                comments={this.props.comments.comments.filter(comment => comment.telescopeId === +match.params.telescopeId)}
                 commentsErrMess={this.props.comments.errMess}
                 postComment={this.props.postComment}
             />
@@ -80,8 +80,8 @@ class Main extends Component {
                     <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
                         <Switch>
                             <Route path='/home' component={HomePage} />
-                            <Route exact path='/directory' render={() => <Directory campsites={this.props.campsites} />} />
-                            <Route path='/directory/:campsiteId' component={CampsiteWithId} />
+                            <Route exact path='/directory' render={() => <Directory telescopes={this.props.telescopes} />} />
+                            <Route path='/directory/:telescopeId' component={TelescopeWithId} />
                             <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} /> } />
                             <Route exact path='/aboutus' render={() => <About partners={this.props.partners} /> } />
                             <Redirect to='/home' />

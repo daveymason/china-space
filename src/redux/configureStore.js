@@ -1,5 +1,5 @@
 import {createStore, combineReducers, applyMiddleware } from 'redux';
-import { Campsites } from './campsites';
+import { Telescopes } from './telescopes';
 import { Comments } from './comments';
 import { Partners } from './partners';
 import { Promotions } from './promotions';
@@ -13,7 +13,7 @@ import { InitialFeedback } from './forms';
 export const ConfigureStore = () => {
     const store = createStore(
         combineReducers({
-            campsites: Campsites,
+            telescopes: Telescopes,
             comments: Comments,
             partners: Partners,
             promotions: Promotions,

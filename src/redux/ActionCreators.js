@@ -6,10 +6,10 @@ export const addComment = comment => ({
     payload: comment
 });
 
-export const postComment = (campsiteId, rating, author, text) => dispatch => {
+export const postComment = (telescopeId, rating, author, text) => dispatch => {
     
     const newComment = {
-        campsiteId: campsiteId,
+        telescopeId: telescopeId,
         rating: rating,
         author: author,
         text: text
@@ -78,15 +78,15 @@ export const commentsFailed = errMess => ({
 
 
 
-export const addCampsites = campsites => ({
-    type: ActionTypes.ADD_CAMPSITES,
-    payload: campsites
+export const addTelescopes = telescopes => ({
+    type: ActionTypes.ADD_TELESCOPES,
+    payload: telescopes
 });
 
-export const fetchCampsites = () => dispatch => {
-    dispatch(campsitesLoading());
+export const fetchTelescopes = () => dispatch => {
+    dispatch(telescopesLoading());
 
-    return fetch(baseUrl + 'campsites')
+    return fetch(baseUrl + 'telescopes')
         .then(response => {
                 if (response.ok) {
                     return response;
@@ -102,16 +102,16 @@ export const fetchCampsites = () => dispatch => {
             }
         )
         .then(response => response.json())
-        .then(campsites => dispatch(addCampsites(campsites)))
-        .catch(error => dispatch(campsitesFailed(error.message)));
+        .then(telescopes => dispatch(addTelescopes(telescopes)))
+        .catch(error => dispatch(telescopesFailed(error.message)));
 };
 
-export const campsitesLoading = () => ({
-    type: ActionTypes.CAMPSITES_LOADING
+export const telescopesLoading = () => ({
+    type: ActionTypes.TELESCOPES_LOADING
 });
 
-export const campsitesFailed = errMess => ({
-    type: ActionTypes.CAMPSITES_FAILED,
+export const telescopesFailed = errMess => ({
+    type: ActionTypes.TELESCOPES_FAILED,
     payload: errMess
 });
 

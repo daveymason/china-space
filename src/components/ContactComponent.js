@@ -107,7 +107,7 @@ class Contact extends Component {
               className="btn btn-link"
               href="mailto:fakeemail@fakeemail.co"
             >
-              <i className="fa fa-envelope-o" /> campsites@nucamp.co
+              <i className="fa fa-envelope-o" /> telescopes@nucamp.co
             </a>
           </div>
         </div>

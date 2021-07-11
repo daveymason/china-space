@@ -12,17 +12,17 @@ import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform } from "react-animation-components";
 
-function RenderDirectoryItem({ campsite }) {
+function RenderDirectoryItem({ telescope }) {
   return (
     <Card>
-      <Link to={`/directory/${campsite.id}`}>
+      <Link to={`/directory/${telescope.id}`}>
         <CardImg
           width="100%"
-          src={baseUrl + campsite.image}
-          alt={campsite.name}
+          src={baseUrl + telescope.image}
+          alt={telescope.name}
         />
         <CardImgOverlay>
-          <CardTitle>{campsite.name}</CardTitle>
+          <CardTitle>{telescope.name}</CardTitle>
         </CardImgOverlay>
       </Link>
     </Card>
@@ -30,15 +30,15 @@ function RenderDirectoryItem({ campsite }) {
 }
 
 function Directory(props) {
-  const directory = props.campsites.campsites.map((campsite) => {
+  const directory = props.telescopes.telescopes.map((telescope) => {
     return (
-      <div key={campsite.id} className="col-md-5 m-1">
-        <RenderDirectoryItem campsite={campsite} />
+      <div key={telescope.id} className="col-md-5 m-1">
+        <RenderDirectoryItem telescope={telescope} />
       </div>
     );
   });
 
-  if (props.campsites.isLoading) {
+  if (props.telescopes.isLoading) {
     return (
       <div className="container">
         <div className="row">
@@ -47,12 +47,12 @@ function Directory(props) {
       </div>
     );
   }
-  if (props.campsites.errMess) {
+  if (props.telescopes.errMess) {
     return (
       <div className="container">
         <div className="row">
           <div className="col">
-            <h4>{props.campsites.errMess}</h4>
+            <h4>{props.telescopes.errMess}</h4>
           </div>
         </div>
       </div>

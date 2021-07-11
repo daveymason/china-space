@@ -10,9 +10,9 @@ function Home(props) {
             <div className="row">
                 <div className="col-md m-1">
                 <RenderCard
-                        item={props.campsite}
-                        isLoading={props.campsitesLoading}
-                        errMess={props.campsitesErrMess}
+                        item={props.telescope}
+                        isLoading={props.telescopesLoading}
+                        errMess={props.telescopesErrMess}
                     />
                 </div>
                 <div className="col-md m-1">
