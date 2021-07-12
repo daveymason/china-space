@@ -14,7 +14,7 @@ const Introtron = (props) => {
             <hr className="my-2" />
             <p>This site started as a fun side project to learn React and therefor all information here was pulled from Wikipedia and should not be expected to be updated. </p>
             <p className="lead">
-              <Button color="warning">Got it, Let's go!</Button>
+              <Button color="warning" href="#featured">Got it, Let's go!</Button>
             </p>   
           </Jumbotron>
         </div>
@@ -26,8 +26,9 @@ function Home(props) {
     return (
         <div>
             <Introtron />
+            <div id='featured'/>
         
-        <div className="container cardLike">
+        <div className="container cardLike" >
             <h2> Featured</h2>
             <hr/>
             <div className="row">
