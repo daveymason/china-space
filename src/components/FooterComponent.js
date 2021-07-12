@@ -13,19 +13,19 @@ function Footer(props) {
           <hr />
             <h5>Connect</h5>
             <div class="social-icons">
-                    <a class="social-icon hvr-float-shadow" target="_blank"
+                    <a class="social-icon hvr-float-shadow" target="_blank" rel="noreferrer"
                         href="https://www.linkedin.com/in/davey-mason/" data-toggle="tooltip" data-placement="top" title="Connect with me!">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a class="social-icon hvr-float-shadow" target="_blank" 
+                    <a class="social-icon hvr-float-shadow" target="_blank" rel="noreferrer" 
                         href="https://www.github.com/daveymason" data-toggle="tooltip" data-placement="top" title="Check out my code!">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a class="social-icon hvr-float-shadow" target="_blank" 
+                    <a class="social-icon hvr-float-shadow" target="_blank" rel="noreferrer"
                         href="https://daveymason.com/assets/docs/Davey%20Mason%20-%20CV.pdf" data-toggle="tooltip" data-placement="top" title="Download my C.V!">
                         <i class="fas fa-id-card"></i>
                     </a>
-                    <a class="social-icon hvr-float-shadow" target="_blank" 
+                    <a class="social-icon hvr-float-shadow" target="_blank" rel="noreferrer"
                         href="mailto:daveymason@outlook.com" data-toggle="tooltip" data-placement="top" title="E-mail me!"> 
                         <i class="fas fa-envelope"></i></a>
                 </div>

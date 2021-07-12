@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 body {
-  font-family: "Open Sans", sans-serif;
-
+  font-family: 'Rubik', sans-serif;
 }
 
-h1, h2, h3, .card-body>.card-title {
+h1{
   font-family: "Lobster", cursive;
 }
+
+h2, h3, .card-body>.card-title {
+  font-family: 'Anton', sans-serif;
+}
+
 
 .card-title {
   font-weight: 500;
@@ -33,17 +39,6 @@ h2 {
 .site-footer {
   background-color: #DEB226;
   padding: 20px 0 0 0;
-}
-
-.jumbotron {
-  margin: 0;
-  padding: 30px;
-  background-image: linear-gradient(to right,  #FFDE00, #fff );
-  color: white;
-}
-
-.jumbotron h2 {
-  color: #CEC8FF;
 }
 
 .navbar-dark {
@@ -154,4 +149,20 @@ h2 {
 
 footer h5{
   font-weight: 900;
+}
+.introtron {
+  margin: 0 auto;
+  padding: 3% 15%;
+}
+
+.cardLike {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin: 5% auto;
+  padding: 2%;
+  box-shadow:rgba(0, 0, 0, 0.35);
+}
+
+.card{
+  border-radius: 0 0 30px 30px;
 }
