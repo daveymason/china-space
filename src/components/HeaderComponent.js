@@ -58,7 +58,7 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
+                                    <NavLink className="nav-link" to="/spaceports">
                                         <i className="fas fa-space-shuttle fa-lg" /> Spaceports
                                     </NavLink>
                                 </NavItem>

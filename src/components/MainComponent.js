@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import Telescope from './TelescopeComponent';
 import Rover from './RoverComponent';
+import Spaceport from './SpaceportComponent';
 import TelescopeInfo from './TelescopeInfoComponent';
+import RoverInfo from './RoverInfoComponent';
+import SpaceportInfo from './SpaceportInfoComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
-import About from './AboutComponent';
+
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postComment, fetchTelescopes, fetchComments, fetchSpaceports, fetchRovers, postFeedback } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-
-
 
 const mapStateToProps = state => {
     return {
@@ -74,6 +75,26 @@ class Main extends Component {
             );
         };
 
+        const RoverWithId = ({match}) => {
+            return (
+                <RoverInfo 
+                rover={this.props.rovers.rovers.filter(rover => rover.id === +match.params.roverId)[0]}
+                isLoading={this.props.rovers.isLoading}
+                errMess={this.props.rovers.errMess}
+            />
+            );
+        };
+
+        const SpaceportWithId = ({match}) => {
+            return (
+                <SpaceportInfo 
+                spaceport={this.props.spaceports.spaceports.filter(spaceport => spaceport.id === +match.params.spaceportId)[0]}
+                isLoading={this.props.spaceports.isLoading}
+                errMess={this.props.spaceports.errMess}
+            />
+            );
+        };
+
         return (
             <div>
                 <Header />
@@ -83,9 +104,11 @@ class Main extends Component {
                             <Route path='/home' component={HomePage} />
                             <Route exact path='/telescopes' render={() => <Telescope telescopes={this.props.telescopes} />} />
                             <Route path='/telescope/:telescopeId' component={TelescopeWithId} />
-                            <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} /> } />
-                            <Route exact path='/aboutus' render={() => <About rovers={this.props.rovers} /> } />
+                            <Route exact path='/spaceports' render={() => <Spaceport spaceports={this.props.spaceports} /> } />
+                            <Route path='/spaceport/:spaceportId' component={SpaceportWithId} />
                             <Route exact path='/rovers' render={() => <Rover rovers={this.props.rovers} />} />
+                            <Route path='/rover/:roverId' component={RoverWithId} />
+                            <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} /> } />
                             <Redirect to='/home' />
                         </Switch>
                     </CSSTransition>
