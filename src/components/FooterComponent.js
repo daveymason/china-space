@@ -6,11 +6,7 @@ function Footer(props) {
     <footer className="site-footer">
       <div className="container">
         <div className="row">
-          <div className="col-4">
-          
-            <p className='footerSignature'>Designed & Developed by <a href="https://daveymason.com">Davey Mason</a>.</p>
-            
-          <hr />
+          <div className="col-6 text-center">
             <h5>Connect</h5>
             <div class="social-icons">
                     <a class="social-icon hvr-float-shadow" target="_blank" rel="noreferrer"
@@ -30,7 +26,7 @@ function Footer(props) {
                         <i class="fas fa-envelope"></i></a>
                 </div>
           </div>
-          <div className="col text-center">
+          <div className="col text-right">
           <h5>Links</h5>
             <ul className="list-unstyled">
               <li>
@@ -51,6 +47,15 @@ function Footer(props) {
             </ul>
           </div>
         </div>
+      </div>
+      <div class="footer-copyright">
+          <div class="container-fluid">
+            <div className="row">
+              <div className="col">
+                <p className='footerSignature'>Designed & Developed by <a href="https://daveymason.com">Davey Mason</a>.</p>
+              </div>
+            </div>
+          </div>
       </div>
     </footer>
   );
