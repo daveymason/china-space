@@ -40,29 +40,31 @@ function RenderTelescope({ telescope }) {
   );
 }
 
-function RenderComments({comments, postComment, telescopeId}) {
+function RenderComments({comments}) {
 
   if (comments) {
     return (
       <div className="col-md-5 m-1">
-        <h4>Comments</h4>
+        <h4>Quick Facts</h4>
+        < hr/>
                 <Stagger in>
                     {
                         comments.map(comment => {
                             return (
                                 <Fade in key={comment.id}>
                                     <div>
+                                      
                                         <p>
-                                            {comment.text}<br />
-                                            -- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
+                                        <li>{comment.text}</li>
                                         </p>
+                                        
                                     </div>
                                 </Fade>
                             );
                         })
                     }
                 </Stagger>
-        <CommentForm telescopeId={telescopeId} postComment={postComment} />
+        
       </div>
     );
   } else {
@@ -118,118 +120,6 @@ function TelescopeInfo(props) {
     );
   }
   return <div />;
-}
-
-const maxLength = (len) => (val) => !val || val.length <= len;
-const minLength = (len) => (val) => val && val.length >= len;
-
-class CommentForm extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isModalOpen: false,
-      rating: '',
-      author: "",
-      text: ""
-    };
-
-    this.toggleModal = this.toggleModal.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  toggleModal() {
-    this.setState({
-      isModalOpen: !this.state.isModalOpen,
-    });
-  }
-
-  handleSubmit(values) {
-    this.toggleModal();
-    this.props.postComment(this.props.telescopeId, values.rating, values.author, values.text);
-}
-
-  render() {
-    return (
-      <React.Fragment>
-        <Button outline color="secondary" onClick={this.toggleModal}>
-          <i className="fa fa-pencil fa-lg" /> Submit Comment
-        </Button>
-
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
-          <ModalBody>
-            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-              <Row className="form-group">
-                <Col md={12}>
-                  <Label for="rating">Rating</Label>
-                  <Control.select
-                    model=".rating"
-                    name="rating"
-                    id="rating"
-                    className="form-control"
-                  >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </Control.select>
-                </Col>
-              </Row>
-
-              <Row className="form-group">
-                <Col md={12}>
-                  <Label for="author">Your Name</Label>
-                  <Control.text
-                    model=".author"
-                    id="author"
-                    name="author"
-                    className="form-control"
-                    validators={{
-                      minLength: minLength(2),
-                      maxLength: maxLength(15),
-                    }}
-                  />
-                  <Errors
-                    className="text-danger"
-                    model=".author"
-                    show="touched"
-                    component="div"
-                    messages={{
-                      minLength: "Must be at least 2 characters",
-                      maxLength: "Must be 15 characters or less",
-                    }}
-                  />
-                </Col>
-              </Row>
-
-              <Row className="form-group">
-                <Col md={12}>
-                  <Label for="text">Comment</Label>
-                  <Control.textarea
-                    model=".text"
-                    id="text"
-                    name="text"
-                    rows="6"
-                    className="form-control"
-                  />
-                </Col>
-              </Row>
-
-              <Row className="form-group">
-                <Col md={12}>
-                  <Button type="submit" color="primary">
-                    Submit
-                  </Button>
-                </Col>
-              </Row>
-            </LocalForm>
-          </ModalBody>
-        </Modal>
-      </React.Fragment>
-    );
-  }
 }
 
 export default TelescopeInfo;
