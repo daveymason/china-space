@@ -86,7 +86,7 @@ class Contact extends Component {
 
         <div className="row">
           <div className="col-12">
-            <h2>Feedback</h2>
+            <h2>Contact</h2>
             <hr />
           </div>
           <div className="col-md-10">
